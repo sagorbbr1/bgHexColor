@@ -6,11 +6,16 @@ function main () {
     const input = document.querySelector('.input');
     const container = document.getElementById('root');
     const button = document.querySelector('.button');
+    const buttonCopy = document.querySelector('.button-copy');
 
     button.addEventListener('click', function() {
         const bgColor = createHex();
         container.style.backgroundColor =  bgColor;
         input.value =  bgColor;
+    });
+
+    buttonCopy.addEventListener('click', function () {
+        navigator.clipboard.writeText(input.value)
     })
 
    
