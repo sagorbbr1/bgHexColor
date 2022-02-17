@@ -1,6 +1,7 @@
 window.onload = function () {
     main();
 }
+let div = null;
 
 function main () {
     const input = document.querySelector('.input');
@@ -15,10 +16,38 @@ function main () {
     });
 
     buttonCopy.addEventListener('click', function () {
-        navigator.clipboard.writeText(input.value)
+        navigator.clipboard.writeText(input.value);
+
+        if(div !== null) {
+            div.remove();
+            div = null;
+        }
+
+        toastMessage(`${input.value} Copied`);
+      
     })
 
    
+}
+
+function toastMessage(msg) {
+    div = document.createElement('div');
+    div.innerText = msg;
+    div.className = 'toast-message toast-message-slide-in';
+    document.body.appendChild(div);
+   
+    div.addEventListener('click', function(e) {
+        this.classList.remove('toast-message-slide-in');
+        this.classList.add('toast-message-slide-out');
+
+        this.addEventListener('animationend', function () {
+            this.remove();
+            div = null;
+        })
+
+    })
+    
+    
 }
 
 function createHex () {
