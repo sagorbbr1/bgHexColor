@@ -79,3 +79,47 @@ input {
   font-weight: bold;
 }
 
+.toast-message {
+  position: fixed;
+  top: 2rem;
+  right: 2rem;
+  background-color: rgb(19, 201, 110);
+  color: #000;
+  border-radius: 0.25rem;
+  border: 1px solid #fff;
+  padding: 1rem 2rem;
+  cursor: pointer;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.toast-message-slide-in {
+  animation: slide-in 0.4s ease-in;
+}
+
+.toast-message-slide-out {
+  animation: slide-out 0.4s ease-in;
+}
+
+@keyframes slide-in {
+  from {
+    transform: translateX(200px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slide-out {
+  from {
+    transform: translate(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(200px);
+    opacity: 0;
+  }
+}
+
+
